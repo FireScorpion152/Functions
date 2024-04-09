@@ -8,19 +8,34 @@ double Quot(int a, int b);
 int Factorial(int a);
 int Pow(int a, int b);
 
+//#define ClassWork
+#define Factorial
+#define Pow
+
 void main() {
 	setlocale(LC_ALL, "");
 	cout << "Hello Functions" << endl;
-	int a, b, c, d, h;
+#ifdef ClassWork
+	int a, b;
 	cout << "¬ведите два числа: "; cin >> a >> b;
-	cout << a << " + " << b << " = " << Sum(a,b) << endl;
-	cout << a << " - " << b << " = " << Dif(a,b) << endl;
+	cout << a << " + " << b << " = " << Sum(a, b) << endl;
+	cout << a << " - " << b << " = " << Dif(a, b) << endl;
 	cout << a << " * " << b << " = " << Prod(a, b) << endl;
 	cout << a << " / " << b << " = " << Quot(a, b) << endl;
+#endif // ClassWork
+
+#ifdef Pow
+	int c, d;
 	cout << "¬ведите число: "; cin >> c; cout << "¬ведите основание степени: "; cin >> d;
 	cout << a << " ^ " << b << " = " << Pow(c, d) << endl;
+#endif // Pow
+
+#ifdef Factorial
+	int h;
 	cout << "¬ведите число дл€ факториала: "; cin >> h;
-	cout << a << "!" << "="  <<  Factorial(h) << endl;
+	cout << a << "!" << "=" << Factorial(h) << endl;
+#endif // Factorial
+
 }
 
 int Sum(int a, int b) {
