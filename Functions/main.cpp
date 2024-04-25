@@ -1,16 +1,17 @@
 #include <iostream>
 using namespace std;
 
-int Sum(int a, int b);
+int Sum(int a, int b = 0); /*значение по умолчанию*/
+			   //параметр по умолчанию
 int Dif(int a, int b);
 int Prod(int a, int b);
 double Quot(int a, int b);
 int Factorial(int a);
 int Pow(int a, int b);
 
-//#define ClassWork
-#define Factorial
-#define Pow
+//#define CLASSWORK
+#define FACTORIAL
+#define POW
 
 void main() {
 	setlocale(LC_ALL, "");
@@ -24,16 +25,16 @@ void main() {
 	cout << a << " / " << b << " = " << Quot(a, b) << endl;
 #endif // ClassWork
 
-#ifdef Pow
+#ifdef POW
 	int c, d;
 	cout << "¬ведите число: "; cin >> c; cout << "¬ведите основание степени: "; cin >> d;
-	cout << a << " ^ " << b << " = " << Pow(c, d) << endl;
+	cout << c << " ^ " << d << " = " << Pow(c, d) << endl;
 #endif // Pow
 
-#ifdef Factorial
+#ifdef FACTORIAL
 	int h;
 	cout << "¬ведите число дл€ факториала: "; cin >> h;
-	cout << a << "!" << "=" << Factorial(h) << endl;
+	cout << h << "!" << "=" << Factorial(h) << endl;
 #endif // Factorial
 
 }
@@ -52,21 +53,20 @@ double Quot(int a, int b) {
 	return (double) a / b;
 }
 
-int Factorial(int a) {
+int Factorial(int h) {
 	
-	int factorial;
 	int c = 1;
 
-	for (int i = 1; i <= a; i++) {
+	for (int i = 1; i <= h; i++) {
 		c = c * i;
 	}
 	return c;
 }
 
-int Pow(int a, int b) {
-	int c = a;
-	for (int i = 0; i < b - 1; i++) {
-		c = c*a;
+int Pow(int c, int d) {
+	int x = c;
+	for (int i = 0; i < d - 1; i++) {
+		c = x * c;
 	}
 	return c;
 }
