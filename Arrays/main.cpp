@@ -46,7 +46,7 @@ int Sum(int arr[], const int n) {
 	return sum;
 }
 double Avg(int arr[], const int n) {
-	int sum = 0; double avg;
+	double sum = 0, avg;
 	for (int i = 0; i < n; i++) {
 		sum += arr[i];
 	}
@@ -57,7 +57,7 @@ double Avg(int arr[], const int n) {
 	int minValueIn(int arr[], const int n){
 		int min = arr[0];
 		for (int i = 0; i < n; i++) {
-			if (arr[n] < min) min = arr[n];
+			if (arr[i] < min) min = arr[i];
 		}
 		return min;
 }
@@ -66,7 +66,7 @@ double Avg(int arr[], const int n) {
 	int maxValueIn(int arr[], const int n){
 		int max = arr[0];
 		for (int i = 0; i < n; i++) {
-			if (arr[n] > max) max = arr[n];
+			if (arr[i] > max) max = arr[i];
 		}
 		return max;
 }
