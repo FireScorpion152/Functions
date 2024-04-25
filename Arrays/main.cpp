@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -24,8 +24,8 @@ void main() {
 	int arr[n];
 	FillRand(arr, n);
 	Print(arr, n);
-	cout << "Ñóììà ìàññèâà: " << Sum(arr, n) << "\n Ñðåäíåå àðèôìåòè÷åñêîå ìàññèâà: " << Avg(arr, n) << "\n Ìèíèìàëüíîå çíà÷åíèå ìàññèâà: " << minValueIn(arr, n);
-	cout << "\n Ìàêñèìàëüíîå çíà÷åíèå ìàññèâà: " << maxValueIn(arr, n) << endl;
+	cout << "Ð¡ÑƒÐ¼Ð¼Ð° Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Sum(arr, n) << "\n Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Avg(arr, n) << "\n ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << minValueIn(arr, n);
+	cout << "\n ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << maxValueIn(arr, n) << endl;
 	shiftLeft(arr, n);
 	shiftRight(arr, n);
 
@@ -108,7 +108,7 @@ double maxValueIn(double arr[], const int n) {
 
 	void shiftLeft(int arr[], const int n) {
 		int left, x;
-		cout << "Ââåäèòå ÷èñëî ñäâèãîâ âëåâî: "; cin >> left;
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ ÑÐ´Ð²Ð¸Ð³Ð¾Ð² Ð²Ð»ÐµÐ²Ð¾: "; cin >> left;
 		for (int i = 0; i < left + 1; i++) {
 			for (int j = 0; j < n; j++) {
 				cout << arr[j] << "\t";
@@ -126,7 +126,7 @@ double maxValueIn(double arr[], const int n) {
 
 	void shiftRight(int arr[], const int n) {
 		int right, x;
-		cout << "Ââåäèòå ÷èñëî ñäâèãîâ âïðàâî: "; cin >> right;
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ ÑÐ´Ð²Ð¸Ð³Ð¾Ð² Ð²Ð¿Ñ€Ð°Ð²Ð¾: "; cin >> right;
 		for (int i = 0; i < right + 1; i++) {
 			for (int j = 0; j < n; j++) {
 				cout << arr[j] << "\t";
