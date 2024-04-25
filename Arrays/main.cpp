@@ -6,9 +6,13 @@ using std::endl;
 void FillRand(int arr[], const int n);
 void Print(const int arr[], const int n);
 int Sum(int arr[], const int n);
+double Sum(double arr[], const int n);
 double Avg(int arr[], const int n);
+double Avg(double arr[], const int n);
 int minValueIn(int arr[], const int n);
+double minValueIn(double arr[], const int n);
 int maxValueIn(int arr[], const int n);
+double maxValueIn(double arr[], const int n);
 void shiftLeft(int arr[], const int n);
 void shiftRight(int arr[], const int n);
 
@@ -45,6 +49,13 @@ int Sum(int arr[], const int n) {
 	}
 	return sum;
 }
+double Sum(double arr[], const int n) {
+	double sum = 0;
+	for (int i = 0; i < n; i++) {
+		sum += arr[i];
+	}
+	return sum;
+}
 double Avg(int arr[], const int n) {
 	double sum = 0, avg;
 	for (int i = 0; i < n; i++) {
@@ -53,8 +64,16 @@ double Avg(int arr[], const int n) {
 	avg = sum / n;
 	return avg;
 }
+double Avg(double arr[], const int n) {
+	double sum = 0, avg;
+	for (int i = 0; i < n; i++) {
+		sum += arr[i];
+	}
+	avg = sum / n;
+	return avg;
+}
 
-	int minValueIn(int arr[], const int n){
+int minValueIn(int arr[], const int n){
 		int min = arr[0];
 		for (int i = 0; i < n; i++) {
 			if (arr[i] < min) min = arr[i];
@@ -62,14 +81,29 @@ double Avg(int arr[], const int n) {
 		return min;
 }
 
+double minValueIn(double arr[], const int n) {
+		double min = arr[0];
+		for (int i = 0; i < n; i++) {
+			if (arr[i] < min) min = arr[i];
+		}
+		return min;
+	}
 
-	int maxValueIn(int arr[], const int n){
+
+int maxValueIn(int arr[], const int n){
 		int max = arr[0];
 		for (int i = 0; i < n; i++) {
 			if (arr[i] > max) max = arr[i];
 		}
 		return max;
 }
+double maxValueIn(double arr[], const int n) {
+		double max = arr[0];
+		for (int i = 0; i < n; i++) {
+			if (arr[i] > max) max = arr[i];
+		}
+		return max;
+	}
 
 
 	void shiftLeft(int arr[], const int n) {
