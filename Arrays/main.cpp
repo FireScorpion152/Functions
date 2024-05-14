@@ -1,17 +1,10 @@
 #include <iostream>
-using std::cin;
-using std::cout;
-using std::endl;
+#include"stdafx.h"
+#include"FillRand.h"
 
-const int ROWS = 4;
-const int COLS = 6;
 
-void FillRand(int arr[], const int n);
-void FillRand(double arr[], const int n);
-void FillRand(char arr[], const int n);
-void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
-void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS);
-void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS);
+
+
 
 template<typename T> void Print(T arr[], const int n);
 void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -26,28 +19,27 @@ void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS);
 template<typename T> T Sum(T arr[], const int n);
 int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double Sum(double arr[ROWS][COLS], const int ROWS, const int COLS);
-char Sum(char arr[ROWS][COLS], const int ROWS, const int COLS);
+void Sum(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 template<typename T> double Avg(T arr[], const int n);
 double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double Avg(double arr[ROWS][COLS], const int ROWS, const int COLS);
-double Avg(char arr[ROWS][COLS], const int ROWS, const int COLS);
+void Avg(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 template<typename T> T minValueIn(T arr[], const int n);
 int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double minValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
-char minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
+void minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 template<typename T> T maxValueIn(T arr[], const int n);
-double maxValueIn(double arr[], const int n);
 int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double maxValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
-char maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
+void maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 template<typename T> void shiftLeft(T arr[], const int n, int number_of_shifts);
 template<typename T> void shiftRight(T arr[], const int n, int number_of_shifts);
 
-#define tab "\t";
+
 
 void main() {
 	setlocale(LC_ALL, "");
@@ -103,10 +95,10 @@ void main() {
 	char c_arr[ROWS][COLS];
 	FillRand(i_arr, ROWS, COLS);
 	Print(i_arr, ROWS, COLS);
-	cout << "Сумма элементов массива: " << Sum(c_arr, ROWS, COLS) << endl;
-	cout << "Среднее-арифметическое элементов массива: " << Avg(c_arr, ROWS, COLS) << endl;
-	cout << "Минимальное значение в массиве: " << minValueIn(c_arr, ROWS, COLS) << endl;
-	cout << "Максимальное значение в массиве: " << maxValueIn(c_arr, ROWS, COLS) << endl;
+	Sum(c_arr, ROWS, COLS);
+	Avg(c_arr, ROWS, COLS);
+	minValueIn(c_arr, ROWS, COLS);
+	maxValueIn(c_arr, ROWS, COLS);
 }
 
 void FillRand(int arr[], const int n) {
@@ -267,9 +259,8 @@ double Sum(double arr[ROWS][COLS], const int ROWS, const int COLS) {
 	}
 	return sum;
 }
-char Sum(char arr[ROWS][COLS], const int ROWS, const int COLS) {
-	cout << "Не получится сложить сумму массива из char";
-	cout << endl;
+void Sum(char arr[ROWS][COLS], const int ROWS, const int COLS) {
+	cout << "Не получится сложить сумму массива из char" << endl;
 }
 //double Sum(double arr[], const int n) {
 //	double sum = 0;
@@ -314,9 +305,8 @@ double Avg(double arr[ROWS][COLS], const int ROWS, const int COLS) {
 	avg = sum / n;
 	return avg;
 }
-double Avg(char arr[ROWS][COLS], const int ROWS, const int COLS) {
-	cout << "Не получится вычислить среднее значение массива из char";
-	cout << endl;
+void Avg(char arr[ROWS][COLS], const int ROWS, const int COLS) {
+	cout << "Не получится вычислить среднее значение массива из char" << endl;;
 }
 
 
@@ -346,7 +336,7 @@ double minValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS) {
 	}
 	return min;
 }
-char minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS) {
+void minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS) {
 	cout << "Невозможно вычислить минимальное значение массива из char" << endl;
 }
 //double minValueIn(double arr[], const int n) {
@@ -392,7 +382,7 @@ double maxValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS) {
 	}
 	return max;
 }
-char maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS) {
+void maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS) {
 	cout << "Невозможно вычислить максимальное значение массива из char" << endl;
 }
 
