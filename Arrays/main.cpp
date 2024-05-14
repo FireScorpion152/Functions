@@ -2,26 +2,50 @@
 using std::cin;
 using std::cout;
 using std::endl;
+
+const int ROWS = 4;
+const int COLS = 6;
+
 void FillRand(int arr[], const int n);
 void FillRand(double arr[], const int n);
-template<typename T>
-void Sort(T arr[], const int n);
-template<typename T>
-void Print(T arr[], const int n);
-template<typename T>
-T Sum(T arr[], const int n);
-template<typename T>
-double Avg(T arr[], const int n);
-template<typename T>
-T minValueIn(T arr[], const int n);
-//double minValueIn(double arr[], const int n);
-template<typename T>
-T maxValueIn(T arr[], const int n);
-//double maxValueIn(double arr[], const int n);
-template<typename T>
-void shiftLeft(T arr[], const int n, int number_of_shifts);
-template<typename T>
-void shiftRight(T arr[], const int n, int number_of_shifts);
+void FillRand(char arr[], const int n);
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS);
+void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS);
+
+template<typename T> void Print(T arr[], const int n);
+void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void Print(double arr[ROWS][COLS], const int ROWS, const int COLS);
+void Print(char arr[ROWS][COLS], const int ROWS, const int COLS);
+
+template<typename T> void Sort(T arr[], const int n);
+void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS);
+
+template<typename T> T Sum(T arr[], const int n);
+int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS);
+double Sum(double arr[ROWS][COLS], const int ROWS, const int COLS);
+char Sum(char arr[ROWS][COLS], const int ROWS, const int COLS);
+
+template<typename T> double Avg(T arr[], const int n);
+double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
+double Avg(double arr[ROWS][COLS], const int ROWS, const int COLS);
+double Avg(char arr[ROWS][COLS], const int ROWS, const int COLS);
+
+template<typename T> T minValueIn(T arr[], const int n);
+int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
+double minValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
+char minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
+
+template<typename T> T maxValueIn(T arr[], const int n);
+double maxValueIn(double arr[], const int n);
+int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
+double maxValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
+char maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
+
+template<typename T> void shiftLeft(T arr[], const int n, int number_of_shifts);
+template<typename T> void shiftRight(T arr[], const int n, int number_of_shifts);
 
 #define tab "\t";
 
@@ -76,11 +100,68 @@ void FillRand(double arr[], const int n) {
 		arr[i] /= 100;
 	}
 }
+void FillRand(char arr[], const int n) {
+	for (int i = 0; i < n; i++) {
+		arr[i] = rand() % 10000;
+		arr[i] /= 100;
+	}
+}
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS) {
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			arr[i][j] = rand() % 10000;
+			arr[i][j] /= 100;
+		}
+	}
+}
+void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS) {
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			arr[i][j] = rand() % 10000;
+			arr[i][j] /= 100;
+		}
+	}
+}
+void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS) {
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			arr[i][j] = rand() % 10000;
+			arr[i][j] /= 100;
+		}
+	}
+}
 
 template<typename T>
 void Print(T arr[], const int n) {
 	for (int i = 0; i < n; i++) {
 		cout << arr[i] << tab;
+	}
+	cout << endl;
+}
+void Print(int arr[ROWS][COLS], const int ROWS, const int COLS) {
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			cout << arr[i][j] << tab;
+		}
+		cout << endl;
+	}
+	cout << endl;
+}
+void Print(double arr[ROWS][COLS], const int ROWS, const int COLS) {
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			cout << arr[i][j] << tab;
+		}
+		cout << endl;
+	}
+	cout << endl;
+}
+void Print(char arr[ROWS][COLS], const int ROWS, const int COLS) {
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			cout << arr[i][j] << tab;
+		}
+		cout << endl;
 	}
 	cout << endl;
 }
@@ -101,6 +182,42 @@ void Sort(T arr[], const int n)
 		}
 	}
 }
+void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS) {
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			for (int k = 0; k < COLS - j - 1; k++) {
+				if (arr[i][k] > arr[i][k + 1]) {
+					int buffer = arr[i][k + 1];
+					arr[i][k + 1] = buffer;
+				}
+			}
+		}
+	}cout << endl;
+}
+void Sort(double arr[ROWS][COLS], const int ROWS, const int COLS) {
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			for (int k = 0; k < COLS - j - 1; k++) {
+				if (arr[i][k] > arr[i][k + 1]) {
+					double buffer = arr[i][k + 1];
+					arr[i][k + 1] = buffer;
+				}
+			}
+		}
+	}cout << endl;
+}
+void Sort(char arr[ROWS][COLS], const int ROWS, const int COLS) {
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			for (int k = 0; k < COLS - j - 1; k++) {
+				if (arr[i][k] > arr[i][k + 1]) {
+					char buffer = arr[i][k + 1];
+					arr[i][k + 1] = buffer;
+				}
+			}
+		}
+	}cout << endl;
+}
 
 template<typename T>
 T Sum(T arr[], const int n) {
@@ -111,6 +228,28 @@ T Sum(T arr[], const int n) {
 	return sum;
 }
 
+int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS) {
+	int sum = 0;
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			sum += arr[i][j];
+		}
+	}
+	return sum;
+}
+double Sum(double arr[ROWS][COLS], const int ROWS, const int COLS) {
+	double sum = 0;
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			sum += arr[i][j];
+		}
+	}
+	return sum;
+}
+char Sum(char arr[ROWS][COLS], const int ROWS, const int COLS) {
+	cout << "Ќе получитс€ сложить сумму массива из char";
+	cout << endl;
+}
 //double Sum(double arr[], const int n) {
 //	double sum = 0;
 //	for (int i = 0; i < n; i++) {
@@ -128,6 +267,36 @@ double Avg(T arr[], const int n) {
 	avg = sum / n;
 	return avg;
 }
+double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS) {
+	double avg;
+	double sum = 0;
+	int n = 0;
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			sum += arr[i][j];
+			n++;
+		}
+	}
+	avg = sum / n;
+	return avg;
+}
+double Avg(double arr[ROWS][COLS], const int ROWS, const int COLS) {
+	double avg;
+	double sum = 0;
+	int n = 0;
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			sum += arr[i][j];
+			n++;
+		}
+	}
+	avg = sum / n;
+	return avg;
+}
+double Avg(char arr[ROWS][COLS], const int ROWS, const int COLS) {
+	cout << "Ќе получитс€ вычислить среднее значение массива из char";
+	cout << endl;
+}
 
 
 template<typename T>
@@ -138,7 +307,27 @@ T minValueIn(T arr[], const int n){
 		}
 		return min;
 }
-
+int  minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS) {
+	int min = arr[0][0];
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			if (arr[i][j] < min)min = arr[i][j];
+		}
+	}
+	return min;
+}
+double minValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS) {
+	double min = arr[0][0];
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			if (arr[i][j] < min)min = arr[i][j];
+		}
+	}
+	return min;
+}
+char minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS) {
+	cout << "Ќевозможно вычислить минимальное значение массива из char" << endl;
+}
 //double minValueIn(double arr[], const int n) {
 //		double min = arr[0];
 //		for (int i = 0; i < n; i++) {
@@ -155,6 +344,7 @@ T maxValueIn(T arr[], const int n){
 		}
 		return max;
 }
+
 //double maxValueIn(double arr[], const int n) {
 //		double max = arr[0];
 //		for (int i = 0; i < n; i++) {
@@ -162,6 +352,28 @@ T maxValueIn(T arr[], const int n){
 //		}
 //		return max;
 //	}
+
+int  maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS) {
+	int max = arr[0][0];
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			if (arr[i][j] > max)max = arr[i][j];
+		}
+	}
+	return max;
+}
+double maxValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS) {
+	double max = arr[0][0];
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			if (arr[i][j] > max)max = arr[i][j];
+		}
+	}
+	return max;
+}
+char maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS) {
+	cout << "Ќевозможно вычислить максимальное значение массива из char" << endl;
+}
 
 template<typename T>
 void shiftLeft(T arr[], const int n, int number_of_shifts)
